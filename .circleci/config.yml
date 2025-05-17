@@ -28,8 +28,7 @@ jobs:
       - run:
           name: "goodbye"
           command: "echo Goodbye"
-    requires:
-      - say-hello
+
           
 
 # Orchestrate jobs using workflows
@@ -39,4 +38,6 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - say-hello
-      - say-goodbye
+      - say-goodbye:
+          requires:
+            - say-hello
